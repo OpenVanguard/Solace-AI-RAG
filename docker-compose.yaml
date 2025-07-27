@@ -1,0 +1,10 @@
+services:
+  ngo-chatbot-api:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    env_file:
+      - .env
+    # If you have a command or entrypoint, make sure it is:
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
